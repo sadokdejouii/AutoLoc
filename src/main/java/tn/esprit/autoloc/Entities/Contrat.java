@@ -2,8 +2,10 @@ package tn.esprit.autoloc.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +21,15 @@ public class Contrat {
     private LocalDate dateSignature;
     private BigDecimal montantTotal;
     private boolean valide;
+
+    // 1 Contrat <-> 1 Reservation
+    @OneToOne(mappedBy = "contrat")
+    private Reservation reservation;
+
+    // 1 Contrat -> plusieurs Paiements
+    @OneToMany(
+            mappedBy = "contrat",
+            cascade = CascadeType.ALL
+    )
+    private List<Paiement> paiements;
 }

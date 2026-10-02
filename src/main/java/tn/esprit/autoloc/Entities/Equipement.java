@@ -3,6 +3,8 @@ package tn.esprit.autoloc.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -15,4 +17,11 @@ public class Equipement {
     private Long idEquipement;
 
     private String libelle;
+
+    // Plusieurs Equipements <-> plusieurs Vehicules
+    @ManyToMany(
+            mappedBy = "equipements",
+            fetch = FetchType.LAZY
+    )
+    private List<Vehicule> vehicules;
 }

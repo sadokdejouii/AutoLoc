@@ -2,7 +2,9 @@ package tn.esprit.autoloc.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,4 +23,11 @@ public class Client {
     private String telephone;
     private String numPermis;
     private LocalDate dateInscription;
+
+    // 1 Client -> plusieurs Reservations
+    @OneToMany(
+            mappedBy = "client",
+            cascade = CascadeType.PERSIST
+    )
+    private List<Reservation> reservations;
 }
