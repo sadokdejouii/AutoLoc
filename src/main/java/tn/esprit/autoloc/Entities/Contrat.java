@@ -29,7 +29,8 @@ public class Contrat {
     // 1 Contrat -> plusieurs Paiements
     @OneToMany(
             mappedBy = "contrat",
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<Paiement> paiements;
 }

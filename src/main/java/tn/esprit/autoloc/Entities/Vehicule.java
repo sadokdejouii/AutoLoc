@@ -32,7 +32,7 @@ public class Vehicule {
 
 
     // Plusieurs Vehicules -> 1 Agence
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "agence_id")
     private Agence agence;
 
@@ -48,7 +48,7 @@ public class Vehicule {
 
 
     // Plusieurs Vehicules <-> plusieurs Equipements
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "vehicule_equipement",
             joinColumns = @JoinColumn(name = "vehicule_id"),

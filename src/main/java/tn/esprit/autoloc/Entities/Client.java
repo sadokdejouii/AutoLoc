@@ -25,9 +25,6 @@ public class Client {
     private LocalDate dateInscription;
 
     // 1 Client -> plusieurs Reservations
-    @OneToMany(
-            mappedBy = "client",
-            cascade = CascadeType.PERSIST
-    )
+    @OneToMany(mappedBy = "client")
     private List<Reservation> reservations;
 }

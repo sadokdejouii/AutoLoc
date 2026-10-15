@@ -22,10 +22,10 @@ public class Agence {
     private String telephone;
 
     // 1 Agence -> plusieurs Vehicules
-    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "agence")
     private List<Vehicule> vehicules;
 
     // 1 Agence -> plusieurs Employes
-    @OneToMany(mappedBy = "agence", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "agence")
     private List<Employe> employes;
 }

@@ -24,7 +24,7 @@ public class Paiement {
     private ModePaiement modePaiement;
 
     // Plusieurs Paiements -> 1 Contrat
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "contrat_id")
     private Contrat contrat;
 }
